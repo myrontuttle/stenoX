@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier
+_commit: v1.0.8
+_src_path: gh:myrontuttle/python-copier-template
+author_email: myrongt@gmail.com
+author_name: Myron Tuttle
+author_username: myrontuttle
+minimal_python_version: '3.9'
+package_name: stenoX
+project_description: Audio/Video Stenographer with WhisperX
+project_name: stenoX
+software_license: MIT License
