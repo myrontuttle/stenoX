@@ -27,9 +27,23 @@ pdm add stenoX
 ```
 
 ## Usage
+From the command line (run cmd line utility as admin on Windows):
 
+```bash
+python transcribe.py <path_to_local_media_file_or_youtube_url>
+```
+
+With PDM (run cmd line utility as admin on Windows):
+
+```bash
+pdm run src/stenoX/transcribe.py <path_to_local_media_file_or_youtube_url>
+```
+
+Or from Python:
 ```python
-import stenoX
+from stenoX import transcribe
+
+
 ```
 
 ### Makefile usage

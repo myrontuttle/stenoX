@@ -1,5 +1,8 @@
+# Project Specific
+media/
+
 # PDM
-.pdm.toml
+.pdm-python
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -137,3 +140,4 @@ dmypy.json
 
 # dask
 dask-worker-space/
+/media/
