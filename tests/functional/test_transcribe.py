@@ -29,7 +29,9 @@ def test_transcribe_with_grammar():
 
 def test_summarize_long():
     """Test a long summary"""
-    test_file = "../media/LongConvo.txt"
+    test_file = (
+        "../media/LangChain Agents Deep Dive with GPT 35 — " "LangChain 6.txt"
+    )
     with open(test_file, "r") as tf:
         transcript = tf.read()
     summaries = transcribe.summarize(transcript)

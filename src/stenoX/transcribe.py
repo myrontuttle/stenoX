@@ -303,7 +303,7 @@ def summarize(transcript: str) -> List[str]:
         # Try to split transcript on sentences into roughly equal segments
         # that fit below max tokens
         segments = []
-        num_lines = transcript.count(".")
+        num_lines = transcript.count("\n")
         segments_needed = math.ceil(token_count / CH_MAX_TOKENS) + 1
         lines_per_segment = int(num_lines / segments_needed)
 
@@ -321,6 +321,8 @@ def summarize(transcript: str) -> List[str]:
             segments.append(transcript[start_loc:current_loc])
             start_loc = current_loc
         for idx, seg in enumerate(segments):
+            if seg.strip() == "":
+                continue
             messages = [
                 STENO_ROLE,
                 {
@@ -406,10 +408,11 @@ def write(file_loc: str, summaries: List[str], transcript: str) -> str:
     logger.info("Writing result to transcript file")
     transcribed = os.path.splitext(file_loc)[0] + ".txt"
     with open(transcribed, "w") as file:
-        file.write("Summary:\n")
-        for summary in summaries:
-            file.write(summary + "\n")
-        file.write("\nTranscript:\n" + transcript)
+        file.write("Overall Summary:\n\n")
+        for idx, summary in enumerate(summaries):
+            file.write(f"Section {idx + 1} Summary:\n")
+            file.write(summary + "\n\n")
+        file.write("Transcript:\n" + transcript)
     return transcribed
 
 
